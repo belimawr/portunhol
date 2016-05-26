@@ -53,11 +53,7 @@ class paraPortunhol:
                         words[d] = words[d].replace(existe, self.portunholTem[i])
                     except:
                         pass
-                        #print("Tem " + word)
-                        #i = self.portuguesTem.index(existe) #pega o indice da existencia
-                        #d = words.index(word) #pega o indice da palavra
-                        #print(d)
-                        #words[d] = words[d].replace(existe, self.portunholTem[i]) #faz o replace
+
 
         fraseFeita  = ""
         for word in words:
