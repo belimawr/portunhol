@@ -1,3 +1,4 @@
+#!/bin/env python
 # -*- coding: utf-8 -*-
 '''
     This program is free software: you can redistribute it and/or modify
@@ -17,79 +18,67 @@
 import os
 import sys
 
+words = {
+    'é': 'es',
+    'um': 'uno',
+    'uma': 'una',
+    'eu': 'yo',
+    'o': 'lo',
+    'a': 'la',
+    'e': 'y',
+    'há': 'hay',
+    'não': 'no',
+    'ou': 'o',
+    'no': 'en lo',
+    'na': 'en la',
+    'da': 'de la',
+    'do': 'del',
+    'você': 'usted',
+    'nada': 'nadie'
+}
+
+end_words = {
+    'ção': 'cion',
+    'ções': 'ciones',
+    'ino': 'ito',
+    'inha': 'ita',
+    'ém': 'ien',
+    'ou': 'oy',
+    'ola': 'uela',
+    'oda': 'ueda',
+    'são': 'sión',
+    'm': 'n',
+    'mento': 'miento'
+}
+
+inside_words = {
+    'ça': 'sa',
+    'ço': 'cio',
+    'nh': 'ñ',
+    'lh': 'll',
+    'er': 'ier',
+    'ven': 'vien',
+    'qua': 'cua',
+    'que': 'quie'
+}
 
 def to_portunhol(word):
-    if word == 'é':
-        word = 'es'
-    if word == 'um':
-        word = 'uno'
-    if word == 'eu':
-        word = 'yo'
-    if word == 'o':
-        word = 'lo'
-    if word == 'a':
-        word = 'la'
-    if word == 'e':
-        word = 'y'
-    if word == 'há':
-        word = 'hay'
-    if word == 'não':
-        word = 'no'
-    if word == 'ou':
-        word = 'o'
-    if word == 'no':
-        word = 'en lo'
-    if word == 'na':
-        word = 'en la'
-    if word == 'você':
-        word == 'usted'
-    if word == 'nada':
-        word = 'nadie'
-
-    if word.endswith('ção'):
-        word = word.replace('ção', 'cion')
-    if word.endswith('inho'):
-        word = word.replace('inho', 'ito')
-    if word.endswith('inha'):
-        word = word.replace('inha', 'ita')
-    if word.endswith('ém'):
-        word = word.replace('ém', 'ien')
-    if word.endswith('ou'):
-        word = word.replace('ou', 'oy')
-    if word.endswith('ola'):
-        word = word.replace('ola', 'uela')
-    if word.endswith('oda'):
-        word = word.replace('oda', 'ueda')
-    if word.endswith('são'):
-        word = word.replace('são', 'sión')
-
-    if word.find('ça') >= 0:
-        word = word.replace('ça', 'sa')
-    if word.find('ço') >= 0:
-        word = word.replace('ço', 'cio')
-    if word.find('nh') >= 0:
-        word = word.replace('nh', 'ñ')
-    if word.find('lh') >= 0:
-        word = word.replace('lh', 'll')
-    if word.find('er') >= 0:
-        word = word.replace('er', 'ier')
-    if word.find('ven') >= 0:
-        word = word.replace('ven', 'vien')
-    if word.find('qua') >= 0:
-        word = word.replace('qua', 'cua')
-    if word.find('que') >= 0:
-        word = word.replace('que', 'quie')
-    if word.endswith('m'):
-        word = word.replace('m', 'n')
-
+    for key in words:
+        if word == key:
+            word = words[key]
+    for key in end_words:
+        if word.endswith(key):
+            word = word.replace(key, end_words[key])
+    for key in inside_words:
+        if word.find(key):
+            word = word.replace(key, inside_words[key])
     return word
 
 if len(sys.argv) == 1:
-    print 'Usage %s <filename>' % os.path.basename(__file__)
+    print ('Usage %s <filename>' % os.path.basename(__file__))
     sys.exit(0)
 
 fp = open(sys.argv[1])
-
 
 i = 0
 final = ''
@@ -102,4 +91,4 @@ for line in fp:
         # print '%s ' % to_portunhol(word)
     final += '\n'
 
-print final
+print (final)
