@@ -21,7 +21,8 @@ from portunhol import conbertir_frasses_cumplietas
 
 def main(argv):
     if len(argv) == 1:
-        print 'Utilizacion: %s <nombre de archivo>' % os.path.basename(__file__)
+        print ('Utilizacion: %s'
+               ' <nombre de archivo>') % os.path.basename(__file__)
         sys.exit(0)
 
     punteiro_de_archivo = open(argv[1])
