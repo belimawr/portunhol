@@ -15,7 +15,7 @@
 '''
 
 
-def to_portunhol(word):
+def para_el_portunhol(word):
     if word == 'é':
         word = 'es'
     if word == 'um':
@@ -80,3 +80,12 @@ def to_portunhol(word):
         word = word.replace('m', 'n')
 
     return word
+
+def conbertir_frasses_cumplietas(las_frasses):
+    expressiones_conbertidas = ''
+    for linea in las_frasses.split('\n'):
+        for palabrita in linea.strip().split(' '):
+            expressiones_conbertidas += para_el_portunhol(palabrita.lower()) + ' '
+        expressiones_conbertidas += '\n'
+    return expressiones_conbertidas
+
