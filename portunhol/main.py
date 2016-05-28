@@ -16,26 +16,20 @@
 
 import os
 import sys
-from portunhol import to_portunhol
+from portunhol import conbertir_frasses_cumplietas
 
 
 def main(argv):
     if len(argv) == 1:
-        print 'Usage %s <filename>' % os.path.basename(__file__)
+        print 'Utilizacion: %s <nombre de archivo>' % os.path.basename(__file__)
         sys.exit(0)
 
-    fp = open(argv[1])
+    punteiro_de_archivo = open(argv[1])
+    finalmiente = ''
+    for linea in punteiro_de_archivo:
+        finalmiente += conbertir_frasses_cumplietas(linea) + '\n'
 
-    i = 0
-    final = ''
-    for line in fp:
-        i += 1
-        for word in line.strip().split(' '):
-            word = word.lower()
-            final += to_portunhol(word) + ' '
-        final += '\n'
-
-    print final
+    print (finalmiente + "\n\nPor supuesto!")
 
 if __name__ == '__main__':
     main(sys.argv)
