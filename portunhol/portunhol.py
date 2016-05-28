@@ -14,9 +14,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import os
-import sys
-
 
 def to_portunhol(word):
     if word == 'é':
@@ -83,23 +80,3 @@ def to_portunhol(word):
         word = word.replace('m', 'n')
 
     return word
-
-if len(sys.argv) == 1:
-    print 'Usage %s <filename>' % os.path.basename(__file__)
-    sys.exit(0)
-
-fp = open(sys.argv[1])
-
-
-i = 0
-final = ''
-for line in fp:
-    i += 1
-    # print 'Linha ' + str(i)
-    for word in line.strip().split(' '):
-        word = word.lower()
-        final += to_portunhol(word) + ' '
-        # print '%s ' % to_portunhol(word)
-    final += '\n'
-
-print final
