@@ -79,5 +79,4 @@ def conbertir_frasses_cumplietas(las_frasses):
     for linea in las_frasses.split('\n'):
         for palabrita in linea.strip().split(' '):
             expressiones_conbertidas += para_el_portunhol(palabrita.lower()) + ' '
-        expressiones_conbertidas += '\n'
     return expressiones_conbertidas
