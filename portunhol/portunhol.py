@@ -15,8 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import os
-import sys
 
 words = {
     'é': 'es',
@@ -63,7 +61,7 @@ inside_words = {
 }
 
 
-def to_portunhol(word):
+def para_el_portunhol(word):
     for key in words:
         if word == key:
             word = words[key]
@@ -75,21 +73,11 @@ def to_portunhol(word):
             word = word.replace(key, inside_words[key])
     return word
 
-if len(sys.argv) == 1:
-    print ('Usage %s <filename>' % os.path.basename(__file__))
-    sys.exit(0)
 
-fp = open(sys.argv[1])
-
-i = 0
-final = ''
-for line in fp:
-    i += 1
-    # print 'Linha ' + str(i)
-    for word in line.strip().split(' '):
-        word = word.lower()
-        final += to_portunhol(word) + ' '
-        # print '%s ' % to_portunhol(word)
-    final += '\n'
-
-print (final)
+def conbertir_frasses_cumplietas(las_frasses):
+    expressiones_conbertidas = ''
+    for linea in las_frasses.split('\n'):
+        for palabrita in linea.strip().split(' '):
+            expressiones_conbertidas += para_el_portunhol(palabrita.lower()) + ' '
+        expressiones_conbertidas += '\n'
+    return expressiones_conbertidas
