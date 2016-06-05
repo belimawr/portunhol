@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 setup(name='portunhol',
-      version='0.1',
+      version='0.2',
       description='A translator from portuguse to portunhol',
       url='https://github.com/belimawr/portunhol/',
       author='Tiago Queiroz',
