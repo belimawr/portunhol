@@ -32,7 +32,10 @@ words = {
     'da': 'de la',
     'do': 'del',
     'você': 'usted',
-    'nada': 'nadie'
+    'nada': 'nadie',
+    'menino': 'chiquitito',
+    'menina': 'chiquitita',
+    'linha': 'linea'
 }
 
 end_words = {
@@ -46,7 +49,9 @@ end_words = {
     'oda': 'ueda',
     'são': 'sión',
     'm': 'n',
-    'mento': 'miento'
+    'mento': 'miento',
+    'nho': 'ito',
+    'nha': 'ita'
 }
 
 inside_words = {
@@ -57,7 +62,19 @@ inside_words = {
     'er': 'ier',
     'ven': 'vien',
     'qua': 'cua',
-    'que': 'quie'
+    'que': 'quie',
+    'mo': 'mue',
+    'fe': 'fie',
+    'fo': 'fue',
+    've': 'viei',
+    'co': 'cue',
+    'cho': 'chue',
+    'com': 'cum',
+    'bo': 'bue',
+    'ce': 'cie',
+    'ci': 'cie',
+    'va': 'ba',
+    'vr': 'br'
 }
 
 
