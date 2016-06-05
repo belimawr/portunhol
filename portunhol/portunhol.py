@@ -86,7 +86,7 @@ def para_el_portunhol(word):
         if word.endswith(key):
             word = word.replace(key, end_words[key])
     for key in inside_words:
-        if word.find(key):
+        if word.find(key) >= 0:
             word = word.replace(key, inside_words[key])
     return word
 
